@@ -35,7 +35,8 @@
 .mapkey{max-width:880px;margin:0 auto;padding:16px 20px 4px;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;}
 .mapkey h2{font-family:'Lora',Georgia,serif;font-size:16px;margin:0 0 6px;border:0;padding:0;}
 .mapkey ul{margin:0;padding-left:0;list-style:none;font-size:13.5px;color:#39434d;}
-.mapkey li{margin:0 0 7px;display:flex;align-items:flex-start;gap:9px;line-height:1.45;}
+.mapkey li{margin:0 0 7px;line-height:1.45;}
+.mapkey li.g{display:flex;align-items:flex-start;gap:9px;}
 .mapkey .gly{flex:0 0 auto;margin-top:1px;}
 .mapkey .nav-circ{width:14px;height:14px;border-radius:50%;background:var(--vru);border:1.6px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block;}
 .mapkey .veh-dia{width:13px;height:13px;background:var(--veh);border:1.6px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block;transform:rotate(45deg);}
@@ -96,9 +97,9 @@
   <div>
     <h2>How to read this map</h2>
     <ul>
-      <li><span class="gly nav-circ"></span><span><b>Navy circle</b> &mdash; a vulnerable road user (pedestrian, cyclist, or scooter rider) was struck.</span></li>
-      <li><span class="gly veh-dia"></span><span><b>Rust diamond</b> &mdash; a vehicle-only crash or other incident on a corridor of interest. No one on foot or bike was hit.</span></li>
-      <li><span class="gly nav-circ" style="width:18px;height:18px"></span><span>A <b>larger dot</b> marks a fatality; a mid-size dot marks a child victim.</span></li>
+      <li class="g"><span class="gly nav-circ"></span><span><b>Navy circle</b> &mdash; a vulnerable road user (pedestrian, cyclist, or scooter rider) was struck.</span></li>
+      <li class="g"><span class="gly veh-dia"></span><span><b>Rust diamond</b> &mdash; a vehicle-only crash or other incident on a corridor of interest. No one on foot or bike was hit.</span></li>
+      <li class="g"><span class="gly nav-circ" style="width:18px;height:18px"></span><span>A <b>larger dot</b> marks a fatality; a mid-size dot marks a child victim.</span></li>
     </ul>
   </div>
   <div>

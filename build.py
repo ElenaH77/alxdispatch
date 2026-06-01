@@ -45,8 +45,9 @@ def header(active):
   <a class="wordmark" href="/">ALX Dispatch<span class="dot">.</span></a>
   <nav class="site">
     {link("map", "/", "Map")}
-    {link("methodology", "/methodology/", "Methodology")}
+    {link("about", "/about/", "About")}
     {link("recommendations", "/recommendations/", "Recommendations")}
+    {link("methodology", "/methodology/", "Methodology")}
     <span class="drop"><a href="/archive/"{archive_active}>Archive</a>
       <span class="menu">
         <a href="/archive/2026-05/">May 2026<small>What dispatch heard in May</small></a>
@@ -54,7 +55,6 @@ def header(active):
         <a href="/archive/">All months</a>
       </span>
     </span>
-    {link("about", "/about/", "About")}
   </nav>
 </header>"""
 
@@ -112,10 +112,10 @@ def navbar_html():
   <a href="/" style="color:#fff;text-decoration:none;font-weight:600;margin-right:auto;">ALX Dispatch<span style="color:#F2CC44;">.</span></a>
   <span style="display:flex;flex-wrap:wrap;gap:4px 14px;">
     <a href="/" style="color:#fff;text-decoration:none;">Map</a>
-    <a href="/methodology/" style="color:#fff;text-decoration:none;">Methodology</a>
-    <a href="/recommendations/" style="color:#fff;text-decoration:none;">Recommendations</a>
-    <a href="/archive/" style="color:#fff;text-decoration:none;">Archive</a>
     <a href="/about/" style="color:#fff;text-decoration:none;">About</a>
+    <a href="/recommendations/" style="color:#fff;text-decoration:none;">Recommendations</a>
+    <a href="/methodology/" style="color:#fff;text-decoration:none;">Methodology</a>
+    <a href="/archive/" style="color:#fff;text-decoration:none;">Archive</a>
   </span>
 </div>"""
 
