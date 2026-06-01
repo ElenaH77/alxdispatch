@@ -52,6 +52,7 @@ select{font:inherit;padding:3px 6px;border:1px solid #c7c3b6;border-radius:5px;b
 .b-brad{background:var(--green);} .b-mva{background:#b8902a;color:#1d2733;}
 .b-hr{background:#7a2e2e;} .b-fatal{background:#000;}
 .b-drca{background:#4a5a6a;}
+.b-child{background:#c25e1a;}
 .pp-note{font-size:12px;color:#374350;margin-bottom:8px;}
 .pp-link{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:12px;padding:6px 11px;border-radius:6px;}
 .pp-link:hover{background:#1a3650;}
@@ -125,7 +126,11 @@ let map = null;
 
 function isVeh(d){ return d.vru_strike !== 'Y'; }
 function color(d){ return isVeh(d) ? VEH : VRU; }
-function radius(d){ return d.incident_type==='fatality'?10:(isVeh(d)?6:7); }
+function radius(d){
+  if (d.incident_type === 'fatality') return 10;
+  if (d.child_victim === 'Y') return 9;
+  return isVeh(d) ? 6 : 7;
+}
 function esc(s){return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 function badges(d){
@@ -134,6 +139,7 @@ function badges(d){
   if(d.corridor==='Braddock') h+='<span class="badge b-brad">Braddock'+(d.phase?(' P'+d.phase):'')+'</span>';
   if(d.corridor==='Mount Vernon') h+='<span class="badge b-mva">Mt Vernon</span>';
   if(d.incident_type==='fatality') h+='<span class="badge b-fatal">fatality</span>';
+  if(d.child_victim==='Y') h+='<span class="badge b-child">child victim</span>';
   if(d.hit_and_run==='Y') h+='<span class="badge b-hr">hit &amp; run</span>';
   if(d.drca_borders==='Y') h+='<span class="badge b-drca">DRCA</span>';
   return h+'</div>';
