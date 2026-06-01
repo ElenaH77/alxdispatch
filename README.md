@@ -16,17 +16,19 @@ The map fetches `incidents.csv` at load time. To update the map, edit the CSV â€
 
 1. **Add cards to the relevant month-page repo** as usual (e.g., `alx-may-dispatch` â†’ `index.html`, add `<article id="incident-NN">` block and audio under `audio/incident_NN/`).
 2. **Append rows to `incidents.csv`** in this repo, one per new card. Match the existing column structure. For `card_url`, use the exact anchor format from the live page (May uses zero-padded two-digit IDs: `#incident-01`; April uses unpadded: `#incident-9`).
-3. **Commit + push both repos.** GitHub Pages picks up the new data on its next build (usually within a minute).
-4. **Spot-check a couple of new dots** open their cards correctly in the live map.
+3. **Coordinates:** Elena captures these at review time in `batch_reviewer.py` by right-clicking the intersection in Google Maps and pasting the result into the **Coordinates** field on the verdict form. The exported verdicts CSV includes them, so adding a row to `incidents.csv` is a paste, not a separate geocoding step.
+4. **Commit + push both repos.** GitHub Pages picks up the new data on its next build (usually within a minute).
+5. **Spot-check a couple of new dots** open their cards correctly in the live map.
 
 ## Data conventions (don't break these)
 
 - **`vru_strike`** drives the dot color. `Y` = navy (pedestrian/cyclist/scooter/motorcycle struck); blank/N = rust (vehicle-only / other).
+- **`child_victim`** = `Y` if the victim was a child (under 18). Renders the dot at radius 9 (between adult VRU at 7 and fatality at 10) plus a `child victim` badge in the popup.
 - **`corridor`** = `Braddock` / `Mount Vernon` / blank. Drives corridor filtering and badges.
 - **`phase`** = `1` (east, Braddock Phase 1 / original Better Braddock) / `2` (west, Phase 2 / Minnie Howard area). Braddock corridor only.
 - **`drca_borders`** = `Y` if within DRCA boundaries (Glebe N, Russell E, Braddock S, Rt 1 + CSX W).
 - **`incident_type`** stays separate from `mode`. A two-car crash must never be coded as a VRU strike.
-- **`lat`/`lng`** are intersection-level approximate; `geo_precision` documents the resolution.
+- **`lat`/`lng`** are hand-verified intersection-level coords (Google Maps right-click); `geo_precision` documents the resolution.
 
 ## Coverage caveat
 
