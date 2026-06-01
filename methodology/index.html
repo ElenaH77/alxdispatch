@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Methodology — ALX Dispatch</title>
+<meta name="description" content="How this data is gathered: public dispatch audio from OpenMHz, Whisper transcription, an automated flagging pipeline, and human review — and why dispatch sees strikes the official crash record misses."/>
+<link rel="canonical" href="https://alxdispatch.org/methodology/"/>
+<meta property="og:title" content="Methodology — ALX Dispatch"/>
+<meta property="og:description" content="How this data is gathered: public dispatch audio from OpenMHz, Whisper transcription, an automated flagging pipeline, and human review — and why dispatch sees strikes the official crash record misses."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://alxdispatch.org/methodology/"/>
+<meta property="og:image" content="https://alxdispatch.org/assets/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Methodology — ALX Dispatch"/>
+<meta name="twitter:description" content="How this data is gathered: public dispatch audio from OpenMHz, Whisper transcription, an automated flagging pipeline, and human review — and why dispatch sees strikes the official crash record misses."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/site.css"/>
+
+</head>
+<body>
+<header class="site">
+  <a class="wordmark" href="/">ALX Dispatch<span class="dot">.</span></a>
+  <nav class="site">
+    <a href="/">Map</a>
+    <a href="/methodology/" class="active">Methodology</a>
+    <a href="/recommendations/">Recommendations</a>
+    <span class="drop"><a href="/archive/">Archive</a>
+      <span class="menu">
+        <a href="/archive/2026-05/">May 2026<small>What dispatch heard in May</small></a>
+        <a href="https://elenah77.github.io/what-dispatch-heard-in-april/" target="_blank" rel="noopener">April 2026<small>The original retrospective &#8599;</small></a>
+        <a href="/archive/">All months</a>
+      </span>
+    </span>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+<main class="page">
+  <h1>Methodology</h1>
+  <p class="lede">How this data is gathered &mdash; and what it can and can't show. This is the answer to &ldquo;how do you know?&rdquo;, and it governs every incident and every month on this site.</p>
+
+  <p><b>This methodology is not novel.</b> The approach &mdash; pulling 911 dispatch audio, transcribing it, and comparing what gets called in against the official crash record &mdash; was developed by Emilia Calma and Charlotte Jackson at the <a href="https://www.dcpolicycenter.org/publications/crash-report-disparities/" target="_blank" rel="noopener">DC Policy Center</a> in 2021, and is being extended in 2025 under federal grant funding by a research team at UVA Darden and the DC Pedestrian Advisory Council. The tool behind this project was built independently before learning of the DC work; the convergence is itself a signal that the underlying approach is sound.</p>
+
+  <h2>The source: public dispatch audio</h2>
+  <p>Alexandria's primary dispatch radio is broadcast on an open frequency and archived publicly on <a href="https://openmhz.com/system/alex" target="_blank" rel="noopener">OpenMHz</a>. This project listens to two talkgroups: <b>APD&nbsp;1 Disp</b> (police dispatch) and <b>AFD&nbsp;2 Alpha Disp</b> (fire/EMS dispatch). No account is required to browse the live archive yourself &mdash; though OpenMHz keeps each call online for only <b>30 days</b>, so anything older has aged out of their site. The audio published on the monthly write-ups is a self-hosted copy downloaded during the review window, so it keeps playing here permanently.</p>
+
+  <h2>The pipeline</h2>
+  <p>An open-source Python tool polls OpenMHz for new recordings on those talkgroups, transcribes each one with OpenAI's Whisper, and flags any recording whose transcript matches a keyword list for pedestrian, cyclist, scooter, or motorcycle activity &mdash; plus crash activity on the two corridors of interest, Mount Vernon Avenue and Braddock Road. The pipeline is built to run unattended on a schedule (a GitHub Actions workflow), so a month of audio can be ingested and transcribed for a few dollars in transcription credits.</p>
+
+  <h2>The human-review step</h2>
+  <p>Flagging is automated; <b>confirmation is not.</b> A human &mdash; me &mdash; reviews every flagged recording and marks it real, false, or unclear, listens for the responding officer's on-scene clarification, and writes the one-line dispatch summary. The output isn't perfect and isn't presented as such: it's a starting list that lets advocates, community associations, and city staff fill in context from a template rather than a blank sheet. Calls that turn out not to be strikes on investigation &mdash; a passenger who fell off the back of a bike, a parked-vehicle strike, car-on-car crashes the keywords caught &mdash; are excluded.</p>
+
+  <h2>Why dispatch sees what the official record misses</h2>
+  <p>This is the project's core argument, so it's worth stating plainly. Virginia's official crash record &mdash; the state TREDS database that feeds Vision Zero dashboards &mdash; only captures crashes that meet the statutory reporting threshold <i>and</i> generate a filed report. A pedestrian struck by a driver who then refuses medical transport, with no obvious property damage and no paperwork, can disappear from that record entirely. But the call still went out over dispatch. Dispatch audio is an <b>upstream</b> view: it captures the moment something was called in, before the filtering that decides what becomes an official statistic. That gap &mdash; between what dispatch hears and what the city officially counts &mdash; is what this project makes visible.</p>
+  <p>In DC, that gap was measured: <b>30 percent of crashes involving a pedestrian or cyclist did not appear in police crash data at all</b> (2021), a figure the 2025 work updates to 30&ndash;40 percent, with the highest undercounts in the lower-income wards that most needed accurate data. There is no reason to believe Alexandria's record is more complete &mdash; same statutory threshold, same dispatch infrastructure.</p>
+
+  <h2>What this can't see</h2>
+  <ul>
+    <li><b>Channel coverage.</b> Only the two primary talkgroups are captured. Incidents handled on secondary tactical or incident-command channels don't appear.</li>
+    <li><b>Calls that never hit the radio.</b> Some pedestrian-at-fault or walk-in-reported incidents are handled through channels this tool can't see. At least one known Alexandria pedestrian incident did not go over primary dispatch radio at all.</li>
+    <li><b>Investigation detail.</b> Follow-up findings, witness statements, final injury assessments, and whether charges were filed don't flow through dispatch. Some incidents turn out less serious than they sounded on the radio; serious incidents often have only sparse initial information.</li>
+  </ul>
+  <p>The counts on this site are counts of what the tool caught and a human verified &mdash; the true totals are almost certainly higher, not lower.</p>
+
+  <h2>A note on access and privacy</h2>
+  <p>A growing number of US localities have moved to encrypted dispatch, usually citing officer safety; the practical effect is that the public loses its only upstream view of what's happening on city streets. Removing the audio doesn't close the gap between what dispatch hears and what the city counts &mdash; it just removes the public's ability to see it. To model good stewardship, license plate numbers, witness contact information, and other identifying details that came over the air are muted in the published audio and redacted in the transcripts. The originals were broadcast publicly; the choice to scrub them is mine, as evidence that public dispatch access and individual privacy can coexist.</p>
+
+  <h2>Open source</h2>
+  <p>The tool is open source. If you're an advocate, journalist, or civic technologist in another city and want to do the same thing locally, the pipeline is documented and adaptable at <a href="https://github.com/ElenaH77/dispatch-pedestrian-monitor" target="_blank" rel="noopener">github.com/ElenaH77/dispatch-pedestrian-monitor</a> &mdash; start with the README, the ADAPTING guide, and the ETHICS doc. The underlying dataset for this site is published on the <a href="/data/">Data</a> page.</p>
+</main>
+
+<footer class="site">
+  <div class="inner">
+    <div class="byline">By Elena Hutchison &middot; written in personal capacity</div>
+    <div class="flinks">
+      <a href="/methodology/">Methodology</a>
+      <a href="/data/">Data</a>
+      <a href="/recommendations/">Recommendations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/about/">About</a>
+      <a href="mailto:ecaudle@gmail.com">Contact</a>
+      <a href="https://github.com/ElenaH77/dispatch-pedestrian-monitor" target="_blank" rel="noopener">Source code &amp; methodology (GitHub)</a>
+    </div>
+    <p class="capacity">A personal civic-data project. The findings and views here are mine alone, not those of DRCA, BPAC, NVFSS, or any other organization I'm part of.</p>
+  </div>
+</footer>
+
+</body>
+</html>

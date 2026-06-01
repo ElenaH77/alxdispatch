@@ -1,0 +1,111 @@
+/* alxdispatch.org — shared site styles.
+   Generated pages share this stylesheet so the header/footer/nav and the
+   documentary visual tone stay consistent across Map / Methodology /
+   Recommendations / Data / About / Archive. Edit here once. */
+
+:root {
+  --navy:#234969; --yellow:#F2CC44; --green:#2E7A52;
+  --vru:#234969; --veh:#C0552B;
+  --bg:#FAF7F2; --hairline:#CFC8BE; --muted:#5A5A5A; --fg:#1A1A1A;
+  --maxw:760px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;padding:0;
+  font-family:'Work Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  color:var(--fg);background:var(--bg);
+  line-height:1.6;font-size:16px;
+}
+
+/* ---------- shared header / nav ---------- */
+header.site{
+  background:var(--navy);color:#fff;
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;
+  padding:13px 20px;
+}
+header.site .wordmark{
+  font-family:'Lora',Georgia,serif;font-weight:600;font-size:18px;
+  color:#fff;text-decoration:none;letter-spacing:.2px;margin-right:auto;
+  white-space:nowrap;
+}
+header.site .wordmark .dot{color:var(--yellow);}
+nav.site{font-size:13.5px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 4px;}
+nav.site a{
+  color:#fff;text-decoration:none;padding:5px 9px;border-radius:6px;
+  white-space:nowrap;
+}
+nav.site a:hover{background:rgba(255,255,255,.12);}
+nav.site a.active{background:rgba(255,255,255,.16);font-weight:600;}
+
+/* Archive dropdown (CSS-only, keyboard + hover) */
+nav.site .drop{position:relative;}
+nav.site .drop > a::after{content:" \25be";font-size:11px;opacity:.8;}
+nav.site .drop .menu{
+  display:none;position:absolute;top:100%;left:0;z-index:1000;
+  background:#fff;color:var(--fg);min-width:200px;
+  border:1px solid var(--hairline);border-radius:8px;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);padding:6px;margin-top:4px;
+}
+nav.site .drop:hover .menu,
+nav.site .drop:focus-within .menu{display:block;}
+nav.site .drop .menu a{
+  display:block;color:var(--fg);padding:8px 10px;border-radius:6px;
+  font-size:13.5px;
+}
+nav.site .drop .menu a:hover{background:#f0ece3;}
+nav.site .drop .menu a small{display:block;color:var(--muted);font-size:11.5px;font-weight:400;}
+
+/* ---------- content pages ---------- */
+main.page{max-width:var(--maxw);margin:0 auto;padding:34px 20px 10px;}
+main.page h1{
+  font-family:'Lora',Georgia,serif;font-weight:600;font-size:30px;
+  line-height:1.2;margin:0 0 6px;
+}
+main.page .lede{font-size:18px;color:#39434d;margin:0 0 26px;}
+main.page h2{
+  font-family:'Lora',Georgia,serif;font-weight:600;font-size:22px;
+  margin:34px 0 10px;padding-top:8px;border-top:1px solid var(--hairline);
+}
+main.page h3{font-size:16.5px;font-weight:700;margin:24px 0 6px;color:var(--navy);}
+main.page p{margin:0 0 14px;}
+main.page a{color:var(--navy);}
+main.page ul,main.page ol{margin:0 0 16px;padding-left:22px;}
+main.page li{margin:0 0 7px;}
+main.page blockquote{
+  margin:16px 0;padding:12px 18px;border-left:4px solid var(--yellow);
+  background:#fff;border-radius:0 8px 8px 0;font-size:15px;
+}
+main.page blockquote cite{display:block;margin-top:8px;font-size:13px;color:var(--muted);font-style:normal;}
+main.page .callout{
+  background:#fff;border:1px solid var(--hairline);border-radius:10px;
+  padding:16px 18px;margin:20px 0;
+}
+main.page .callout .k{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin:0 0 4px;}
+main.page table{border-collapse:collapse;width:100%;font-size:14px;margin:14px 0;}
+main.page table th,main.page table td{
+  text-align:left;border-bottom:1px solid var(--hairline);padding:7px 10px;vertical-align:top;
+}
+main.page table th{background:#f0ece3;font-weight:600;}
+main.page table code{font-size:13px;}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#efeadf;padding:1px 5px;border-radius:4px;font-size:13.5px;}
+.scope-foot{font-size:13.5px;color:#6a6356;border-top:1px solid var(--hairline);margin-top:24px;padding-top:14px;}
+
+/* ---------- shared footer ---------- */
+footer.site{
+  background:#f0ece3;border-top:1px solid var(--hairline);
+  margin-top:40px;padding:22px 20px;color:var(--muted);font-size:13px;line-height:1.6;
+}
+footer.site .inner{max-width:var(--maxw);margin:0 auto;}
+footer.site .byline{color:var(--fg);font-weight:600;font-size:13.5px;margin-bottom:4px;}
+footer.site .flinks{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0;}
+footer.site a{color:var(--navy);}
+footer.site .capacity{margin-top:8px;font-size:12px;color:#7a7466;}
+
+@media (max-width:640px){
+  header.site{padding:11px 15px;gap:6px 14px;}
+  header.site .wordmark{font-size:16px;}
+  nav.site{font-size:13px;width:100%;}
+  main.page{padding:24px 16px 8px;}
+  main.page h1{font-size:25px;}
+}

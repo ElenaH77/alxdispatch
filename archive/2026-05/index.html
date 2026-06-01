@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>What Dispatch Heard in May — Alexandria, Virginia</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Pedestrian, cyclist, and scooter strikes on Alexandria&#x27;s public dispatch audio in May 2026. Updated as new incidents are confirmed.">
+  <link rel="canonical" href="https://elenah77.github.io/alx-may-dispatch/">
+  <meta property="og:title" content="What Dispatch Heard in May">
+  <meta property="og:description" content="Pedestrian, cyclist, and scooter strikes on Alexandria&#x27;s public dispatch audio in May 2026. Updated as new incidents are confirmed.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://elenah77.github.io/alx-may-dispatch/">
+  <meta property="og:site_name" content="What Dispatch Heard in May">
+  <meta property="og:image" content="https://elenah77.github.io/alx-may-dispatch/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Dispatch Heard in May">
+  <meta name="twitter:description" content="Pedestrian, cyclist, and scooter strikes on Alexandria&#x27;s public dispatch audio in May 2026. Updated as new incidents are confirmed.">
+  <meta name="twitter:image" content="https://elenah77.github.io/alx-may-dispatch/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #FAF7F2;
+  --fg: #1A1A1A;
+  --muted: #5A5A5A;
+  --hairline: #CFC8BE;
+  --accent-navy: #2A4F7C;
+  --accent-terracotta: #A84A35;
+  --card-bg: #FFFDF8;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 17px;
+  line-height: 1.65;
+}
+h1, h2, h3, .location {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+a { color: var(--accent-navy); text-decoration: none; border-bottom: 1px solid currentColor; }
+a:hover { opacity: 0.75; }
+main { max-width: 680px; margin: 0 auto; padding: 32px 24px 80px; }
+
+/* Masthead */
+.masthead {
+  padding: 56px 24px 28px;
+  border-bottom: 0.5px solid var(--hairline);
+  text-align: left;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.eyebrow-top {
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 18px;
+}
+.masthead h1 {
+  font-size: 40px; line-height: 1.12; margin: 0 0 14px; max-width: 640px;
+}
+.masthead .subhead {
+  font-size: 17px; color: var(--muted); line-height: 1.55; max-width: 600px;
+  margin: 0;
+}
+.masthead .subhead a { color: var(--accent-navy); }
+
+/* Cards */
+article.incident {
+  background: var(--card-bg);
+  border: 0.5px solid var(--hairline);
+  border-radius: 2px;
+  padding: 22px 24px;
+  margin: 24px 0;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+article.incident.visible { opacity: 1; transform: none; }
+article.incident.heavier {
+  border-width: 0.5px; border-color: #9a5849; box-shadow: 0 0 0 1px #9a5849 inset;
+}
+article.incident .eyebrow {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+article.incident h3.location {
+  font-size: 22px; margin: 0 0 12px; line-height: 1.2; color: var(--fg);
+}
+article.incident .pills { margin-bottom: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+.pill {
+  display: inline-block; padding: 2px 10px; border-radius: 2px;
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-weight: 600;
+  border: 0.5px solid var(--hairline);
+  color: var(--muted); background: transparent;
+}
+.pill.type { color: var(--fg); }
+.pill.hit-and-run { background: var(--accent-terracotta); color: white; border-color: var(--accent-terracotta); }
+.pill.fatality { background: #6b1a1a; color: white; border-color: #6b1a1a; }
+.pill.reported { background: var(--accent-navy); color: white; border-color: var(--accent-navy); }
+.pill.school-zone { background: #c08540; color: white; border-color: #c08540; }
+.pill.crosswalk { background: #4a6a2e; color: white; border-color: #4a6a2e; }
+.pill.of-interest { background: transparent; color: var(--muted); border: 0.5px dashed var(--muted); }
+.pill.police { background: #3a4a66; color: white; border-color: #3a4a66; }
+.pill.transit { background: #8b6914; color: white; border-color: #8b6914; }
+.pill.vehicle-crash { background: #6c6c70; color: white; border-color: #6c6c70; }
+
+/* Corridor section divider */
+.section-divider { margin: 64px 0 8px; padding-top: 32px; border-top: 0.5px solid var(--hairline); }
+.section-divider h2 { font-family: "Playfair Display", Georgia, serif;
+                      font-size: 26px; margin: 0 0 6px; color: var(--fg); }
+.section-divider .intro { font-size: 14px; color: var(--muted); margin: 0 0 12px;
+                          line-height: 1.55; max-width: 600px; }
+.section-divider .intro b { color: var(--fg); }
+article.incident .excerpt {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic; font-size: 16px; line-height: 1.55;
+  border-left: 2px solid var(--hairline);
+  margin: 14px 0; padding: 2px 0 2px 18px;
+  color: #333;
+}
+article.incident .clips { margin: 14px 0 8px; }
+.clip {
+  padding: 8px 0; border-bottom: 0.5px dotted var(--hairline);
+}
+.clip:last-child { border-bottom: none; }
+.clip-meta { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-family: ui-monospace, monospace; letter-spacing: 0.02em; }
+button.play-all {
+  font: inherit; font-size: 13px;
+  background: transparent; border: 0.5px solid var(--accent-navy);
+  color: var(--accent-navy); padding: 6px 12px; border-radius: 2px;
+  cursor: pointer; letter-spacing: 0.04em;
+  margin: 14px 0 4px;
+}
+button.play-all:hover { background: var(--accent-navy); color: white; }
+.tg.APD { color: #1b4f8a; font-weight: 700; }
+.tg.AFD { color: var(--accent-terracotta); font-weight: 700; }
+.clip audio { height: 34px; width: 100%; max-width: 480px; }
+.links { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+a.coverage {
+  font-size: 13px; color: var(--accent-navy); border-bottom: 0;
+  letter-spacing: 0.02em;
+}
+a.coverage:hover { text-decoration: underline; }
+
+button.share-card {
+  font: inherit; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: transparent; border: 0.5px solid var(--hairline);
+  color: var(--muted); padding: 5px 12px; border-radius: 2px;
+  cursor: pointer; font-weight: 600; margin-left: auto;
+}
+button.share-card:hover { border-color: var(--accent-navy); color: var(--accent-navy); }
+button.share-card.copied { background: var(--accent-navy); color: white; border-color: var(--accent-navy); }
+
+footer {
+  margin-top: 64px; padding: 32px 0 0;
+  border-top: 0.5px solid var(--hairline);
+  font-size: 13px; color: var(--muted);
+}
+footer .byline { font-family: "Playfair Display", Georgia, serif; font-size: 16px; color: var(--fg); margin-bottom: 12px; }
+footer .last-updated { margin-top: 18px; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+footer a { color: var(--muted); }
+
+@media (max-width: 640px) {
+  .masthead { padding: 36px 20px 24px; }
+  .masthead h1 { font-size: 30px; }
+  .masthead .subhead { font-size: 16px; }
+  main { padding: 20px 20px 60px; }
+  article.incident { padding: 18px 18px; }
+  article.incident h3.location { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+<!--alx-navbar-->
+<div style="background:#234969;color:#fff;font-family:'Work Sans',-apple-system,Segoe UI,Roboto,sans-serif;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:11px 18px;font-size:13.5px;">
+  <a href="/" style="color:#fff;text-decoration:none;font-weight:600;margin-right:auto;">ALX Dispatch<span style="color:#F2CC44;">.</span></a>
+  <span style="display:flex;flex-wrap:wrap;gap:4px 14px;">
+    <a href="/" style="color:#fff;text-decoration:none;">Map</a>
+    <a href="/methodology/" style="color:#fff;text-decoration:none;">Methodology</a>
+    <a href="/recommendations/" style="color:#fff;text-decoration:none;">Recommendations</a>
+    <a href="/archive/" style="color:#fff;text-decoration:none;">Archive</a>
+    <a href="/about/" style="color:#fff;text-decoration:none;">About</a>
+  </span>
+</div>
+<header class="masthead">
+  <div class="eyebrow-top">Alexandria, Virginia &middot; running log &middot; in progress</div>
+  <h1>What Dispatch Heard in May</h1>
+  <p class="subhead">Pedestrian, cyclist, and scooter strikes &mdash; vulnerable road users (VRUs) &mdash; plus crashes on corridors of interest (currently Braddock Road and Mount Vernon Avenue) on Alexandria&rsquo;s public dispatch audio in May 2026. <strong>This log is very much in progress.</strong> Cards reflect what dispatch said in the moment; details and verdicts may be revised as more information surfaces, including police context expected at upcoming community meetings. Companion to <a href="https://elenah77.github.io/what-dispatch-heard-in-april/">What Dispatch Heard in April</a>.</p>
+</header>
+
+<main>
+
+<article class="incident heavier" id="incident-01">
+  <div class="eyebrow">Friday, May&nbsp;1 &middot; 5:03&nbsp;PM &middot; <span class="neighborhood">Del Ray</span></div>
+  <h3 class="location">Kennedy St &amp; Mount Vernon Ave</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span><span class="pill crosswalk">Crosswalk</span></div>
+  <blockquote class="excerpt">Units in reference to the MVC injury pedestrian struck at Kennedy and Mount Vernon Avenue. It&rsquo;s going to be a female that was struck and is stuck under the vehicle. It&rsquo;s going to be a black Toyota RAV4. It&rsquo;s going to be a nine-year-old female.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">5:03:42&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 19s &middot; initial dispatch</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_01/69f51548d7432e855c949e43.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">5:03:49&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 19s &middot; Engine 209, Medic 301, EMS 201</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_01/69f5154bd7432e855c94a4c8.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">5:04:12&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 18s &middot; nine-year-old female, stuck under the vehicle</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_01/69f51563d7432e855c94e1ab.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">5:05:13&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 14s &middot; Rescue 209 added</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_01/69f51599d7432e855c957493.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="4">
+  <div class="clip-meta">
+    <span class="clip-time">5:24:28&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 16s &middot; officer following medics</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_01/69f51a25d7432e855ca06c15.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="5">
+  <div class="clip-meta">
+    <span class="clip-time">5:31:14&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 9s &middot; transport confirmed: Children&rsquo;s National, DC</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_01/69f51bb3d7432e855ca45e57.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-01" data-share-title="Kennedy St &amp; Mount Vernon Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-02">
+  <div class="eyebrow">Saturday, May&nbsp;2 &middot; 11:03&nbsp;PM &middot; <span class="neighborhood">Arlandria</span></div>
+  <h3 class="location">3801 Executive Ave</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">Engine 209, Medic 109, Rescue 209, EMS 202, operate onto Bravo, Box 209-21, Pedestrian&rsquo;s Drop, 3801 Executive Avenue, Cross Street, West Cleve Road.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">11:03:41&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 11s &middot; initial dispatch</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_02/69f6bb1bd7432e855c76d1f9.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">11:03:45&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 22s &middot; Engine 209, Medic 109, Rescue 209, EMS 202</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_02/69f6bb2bd7432e855c77113a.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-02" data-share-title="3801 Executive Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-03">
+  <div class="eyebrow">Monday, May&nbsp;4 &middot; 8:12&nbsp;AM</div>
+  <h3 class="location">4317 Wheeler Ave (parking lot)</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">Copy crash 7. It&rsquo;s going to be 4317 Wheeler Avenue, 4317 Wheeler Avenue. It&rsquo;s a four pedestrian struck. The patient right now is refusing an ambulance. He says that a vehicle in the parking lot backed into him.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:12:50&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 21s &middot; initial dispatch</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_03/69f88d59d7432e855c0abbde.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">8:14:29&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 6s &middot; &ldquo;our engine won&rsquo;t start&rdquo;</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_03/69f88dafd7432e855c0b37c2.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">8:14:31&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 19s &middot; vehicle backed into pedestrian, ambulance refused</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_03/69f88dbcd7432e855c0b4cf8.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">8:15:45&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 10s &middot; cancellation</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_03/69f88dfed7432e855c0ba9bb.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-03" data-share-title="4317 Wheeler Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-05">
+  <div class="eyebrow">Tuesday, May&nbsp;5 &middot; 8:57&nbsp;AM &middot; <span class="neighborhood">Carlyle</span></div>
+  <h3 class="location">Duke St &amp; John Carlyle St (by Whole Foods)</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">Both units, Chevron and Duke Street and John Carlisle for a pedestrian struck. The suspect&rsquo;s vehicle is still on scene. Fire is also en route to this location. The patient has injuries with lacerations to her head.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:57:40&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 18s &middot; Engine 201, Medic 405, EMS 202</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_05/69f9e959d7432e855c6e31c5.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">8:59:21&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 9s &middot; reassigning units</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_05/69f9e9b4d7432e855c6f0dc3.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">8:59:56&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 17s &middot; suspect on scene; lacerations to her head</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_05/69f9e9e1d7432e855c6f7c72.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-05" data-share-title="Duke St &amp; John Carlyle St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-06">
+  <div class="eyebrow">Friday, May&nbsp;8 &middot; 4:53&nbsp;PM &middot; <span class="neighborhood">West End / Mark Center</span></div>
+  <h3 class="location">Fillmore Ave &amp; N Beauregard St</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">330, any units to break and respond for the MVC with injuries at the intersection of Fillmore Avenue and North Beauregard. It&rsquo;s going to be a Northern Virginia PD officer on scene that struck a pedestrian. Fire is also en route. Priority response is authorized.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">4:53:48&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 19s &middot; initial dispatch</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_06/69fe4d72d7432e855cdf9dd4.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">4:55:40&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 31s &middot; NoVA PD officer on scene struck a pedestrian</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_06/69fe4df2d7432e855ce1a491.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">4:55:53&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 14s &middot; Medic 206 added</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_06/69fe4debd7432e855ce18576.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-06" data-share-title="Fillmore Ave &amp; N Beauregard St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-07">
+  <div class="eyebrow">Friday, May&nbsp;8 &middot; 10:13&nbsp;PM &middot; <span class="neighborhood">Old Town</span></div>
+  <h3 class="location">S Payne St &amp; Prince St</h3>
+  <div class="pills"><span class="pill type">Scooter</span></div>
+  <blockquote class="excerpt">At 124 any units break and assist for the MVC with a scooter at South Payne and Prince. Again South Payne Street at Prince Street. Fire response will be authorized at 2214. Fire is en route for the same scooter versus a dark colored SUV.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">10:13:00&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 18s &middot; initial dispatch (called as bicyclist)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_07/69fe9841d7432e855c0d47c2.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">10:14:25&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 19s &middot; scooter versus dark colored SUV</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_07/69fe9899d7432e855c0ea323.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">10:15:13&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 7s &middot; Medic 411 directed en route</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_07/69fe98bbd7432e855c0f3538.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-07" data-share-title="S Payne St &amp; Prince St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-08">
+  <div class="eyebrow">Saturday, May&nbsp;16 &middot; 12:43&nbsp;AM &middot; <span class="neighborhood">Carlyle / Eisenhower</span></div>
+  <h3 class="location">Harvard St &amp; Cameron St</h3>
+  <div class="pills"><span class="pill type">Scooter</span></div>
+  <blockquote class="excerpt">This is going to be for the accident involving a scooter at the intersection of Harvard Street and Cameron Street. We do have a male patient bleeding from the head. We also have medics responding. Priority response is authorized at 0044.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">12:43:59&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 19s &middot; initial dispatch (called as bicyclist)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_08/6a07f625d7432e855c2d4ca5.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">12:44:20&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 19s &middot; male patient bleeding from the head</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_08/6a07f63ed7432e855c2da0e6.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-08" data-share-title="Harvard St &amp; Cameron St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-09">
+  <div class="eyebrow">Sunday, May&nbsp;17 &middot; 11:35&nbsp;AM &middot; <span class="neighborhood">Old Town</span></div>
+  <h3 class="location">400 block S Alfred St (at Wolfe St)</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">Headquarters to Indiana to respond to the crash with injury at the 400 block of South Alfred Street. The 400 block of South Alfred. We&rsquo;re looking for a GLE 350 Mercedes Benz versus a pedestrian.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">11:35:11&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 37s &middot; Engine 205, Medic 205, EMS 201</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_09/6a09e059d7432e855ccd22d3.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">11:37:55&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 14s &middot; Mercedes GLE 350 versus a pedestrian</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_09/6a09e0e5d7432e855ccf8707.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">11:42:06&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 8s &middot; plate readback: blue Mercedes, VA 11637-W</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_09/6a09e1dbd7432e855cd3fd9f.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-09" data-share-title="400 block S Alfred St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-10">
+  <div class="eyebrow">Sunday, May&nbsp;17 &middot; 7:41&nbsp;PM &middot; <span class="neighborhood">West End (Liberty Gas)</span></div>
+  <h3 class="location">4368 King St (Liberty Gas Station)</h3>
+  <div class="pills"><span class="pill type">Motorcycle</span><span class="pill type">Bicyclist</span></div>
+  <blockquote class="excerpt">332, 332 Alpha for the accident involving a motorcycle. 4368 King Street, 4368 King Street. Receiving multiple callers. Reference the motorcycle versus a sedan. Possibly a blue Toyota. Patient is currently standing. Fire is also en route.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">7:41:20&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 25s &middot; motorcycle versus blue Toyota sedan</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_10/6a0a523fd7432e855c124e8b.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">7:41:20&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 21s &middot; AFD dispatched as &ldquo;bicyclist&rsquo;s struck&rdquo; (CAD template)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_10/6a0a5238d7432e855c1227b9.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-10" data-share-title="4368 King St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-11">
+  <div class="eyebrow">Monday, May&nbsp;18 &middot; 8:04&nbsp;AM &middot; <span class="neighborhood">Mark Center</span></div>
+  <h3 class="location">King St &amp; S Walter Reed Dr (next to the Mark Center)</h3>
+  <div class="pills"><span class="pill type">Cyclist</span></div>
+  <blockquote class="excerpt">Headquarters to the unit that could break for a crash with injury at Walter Reed Drive and King Street. [On scene:] Carl&rsquo;s advising there are no injuries now, so it&rsquo;s just going to be property damage.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:04:00&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 19s &middot; initial dispatch as &ldquo;Bicyclist&rsquo;s Struck&rdquo;</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_11/6a0b0047d7432e855c2d799f.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">8:04:07&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 6s &middot; APD dispatch &mdash; crash with injury</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_11/6a0b0040d7432e855c2d59e5.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">8:04:20&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 14s &middot; redirected; on-scene reports no injuries, property damage only</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_11/6a0b0056d7432e855c2dba1b.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-11" data-share-title="King St &amp; S Walter Reed Dr &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-13">
+  <div class="eyebrow">Tuesday, May&nbsp;19 &middot; 8:10&nbsp;PM &middot; <span class="neighborhood">Old Town North</span></div>
+  <h3 class="location">558 N Saint Asaph St (at Pendleton St)</h3>
+  <div class="pills"><span class="pill type">Scooter</span><span class="pill hit-and-run">Hit and run</span></div>
+  <blockquote class="excerpt">311, 312, just be advised we also have medics en route. This argument may have been a subject being knocked off his scooter. Check for a white SUV on scene. [Later, 9:03 PM:] He was struck by a vehicle on a scooter, has some injuries to his leg. The scene is cold.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:10:19&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 8s &middot; subject knocked off his scooter; white SUV on scene</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_13/6a0cfbf8d7432e855c163b3f.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">9:03:11&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 14s &middot; leg injuries; scene is cold (vehicle gone)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_13/6a0d0862d7432e855c5bb5ec.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">9:04:18&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 14s &middot; Ambulance 207 dispatched to 558 N St Asaph &amp; Pendleton</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_13/6a0d08a3d7432e855c5d482e.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-13" data-share-title="558 N Saint Asaph St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-14">
+  <div class="eyebrow">Wednesday, May&nbsp;20 &middot; 4:58&nbsp;PM &middot; <span class="neighborhood">West End / Seminary corridor</span></div>
+  <h3 class="location">N Howard St &amp; Seminary Rd</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">335 and units are back for the crash, pedestrian struck at North Howard and Seminary Road. North Howard Street and Seminary Road, priority response authorized 1658. We&rsquo;re looking for a Nissan Altima.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">4:58:01&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 19s &middot; priority response authorized; looking for a Nissan Altima</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_14/6a0e2077d7432e855cf5d55c.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">4:58:05&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 19s &middot; Engine 207, Medic 206, EMS 201</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_14/6a0e207ad7432e855cf5e116.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">5:08:05&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 8s &middot; plate readback: gray 2024 Nissan, valid 11-2027, negative</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_14/6a0e22ced7432e855cfd74e9.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">5:23:24&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 11s &middot; officer gives courtesy ride for one male to Alexandria City High School</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_14/6a0e265fd7432e855c0d1f96.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-14" data-share-title="N Howard St &amp; Seminary Rd &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-16">
+  <div class="eyebrow">Thursday, May&nbsp;21 &middot; 8:52&nbsp;PM &middot; <span class="neighborhood">Seminary corridor / Mark Center</span></div>
+  <h3 class="location">5021 Seminary Rd at Mark Center Ave</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">325 and 315 for the MVC pedestrian struck. 5021 Seminary Road, 5021 Seminary Road. Stated adult was struck by a vehicle and black Nissan Altima is still on scene. Fire is en route. Victim is still on ground. Priority response is authorized at 2052 hours.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:51:50&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 21s &middot; Engine 206, Medic 206, EMS 202</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_16/6a0fa8bdd7432e855c852fdd.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">8:52:04&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 21s &middot; adult victim on ground; black Nissan Altima on scene</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_16/6a0fa8ced7432e855c858742.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">8:59:26&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 11s &middot; off-scene units cancel; scene staffed</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_16/6a0faa7ed7432e855c8e94fe.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">9:02:45&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 7s &middot; officer following Medic 206 to 4320 (Inova Alexandria)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_16/6a0fab42d7432e855c92a8d1.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-16" data-share-title="5021 Seminary Rd &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-18">
+  <div class="eyebrow">Tuesday, May&nbsp;26 &middot; 4:48&nbsp;PM &middot; <span class="neighborhood">West End / Cameron Station edge</span></div>
+  <h3 class="location">W Braddock Rd &amp; N Hampton Dr</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">331 if you could please respond to the intersection of West Braddock and North Hampton, it&rsquo;s going to be in reference to an accident pedestrian struck about 10 minutes ago.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">4:58:33&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 10s &middot; reported 10 minutes after the strike</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_18/6a16098f395a771585f65982.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">5:37:30&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 10s &middot; officer going to address to speak with the suspect (driver identified)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_18/6a1612aa395a771585248dc5.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-18" data-share-title="W Braddock Rd &amp; N Hampton Dr &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-29">
+  <div class="eyebrow">Thursday, May&nbsp;28 &middot; 11:50&nbsp;AM &middot; <span class="neighborhood">King Street &middot; adjacent to ACHS King St campus</span></div>
+  <h3 class="location">3310 King St (between Chinquapin Dr &amp; Kenwood Ave)</h3>
+  <div class="pills"><span class="pill type">Motorcycle</span><span class="pill type">Bicyclist</span><span class="pill school-zone">School zone</span></div>
+  <blockquote class="excerpt">[AFD:] Engine 203, Medic 206, EMS 201, operating on 2 Bravo, Box 20304, Bicyclist&rsquo;s [Struck], 3310, King St. [APD a minute later:] Sorry about that sir, 214 and crash three, it&rsquo;s going to be for the motor vehicle crash involving a motorcycle at 3310 King Street.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">11:50:45&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 35s &middot; initially dispatched as &ldquo;Bicyclist&rsquo;s Struck&rdquo; (AFD CAD template)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_29/6a18647d395a7715855d9016.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">11:51:51&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 14s &middot; APD clarifies: motor vehicle crash involving a motorcycle</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_29/6a1864a8395a7715855e597b.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-29" data-share-title="3310 King St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-27">
+  <div class="eyebrow">Thursday, May&nbsp;28 &middot; 1:16&nbsp;PM &middot; <span class="neighborhood">Old Town North &middot; waterfront</span></div>
+  <h3 class="location">Canal Center Plaza &amp; N Fairfax St (at 1st St)</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">Engine 201, Medic 209, EMS 201, operate onto Bravo, Fox, 20412, Pedestrian Struck, 1st Street, and North Fairfax Street. Engine 205, Medic 205, EMS 202, operate onto Bravo, Fox, 20412, Pedestrian Struck, Canal Center Plaza, and North Fairfax Street.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">1:16:21&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 38s &middot; double dispatch &mdash; Engine 201 + Engine 205, two medic units</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_27/6a187890395a771585b6a368.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">1:18:12&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 12s &middot; APD calls in two units</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_27/6a1878e5395a771585b80523.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">1:18:36&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 16s &middot; 212 + 233 priority response authorized</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_27/6a187902395a771585b88cb2.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-27" data-share-title="Canal Center Plaza &amp; N Fairfax St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident heavier" id="incident-25">
+  <div class="eyebrow">Friday, May&nbsp;29 &middot; 5:14&nbsp;PM &middot; <span class="neighborhood">Potomac Yard</span></div>
+  <h3 class="location">Main Line Blvd &amp; Bluemont Ave</h3>
+  <div class="pills"><span class="pill type">Bicyclist</span><span class="pill hit-and-run">Hit and run</span></div>
+  <blockquote class="excerpt">325 and units are back for the hit-and-run pedestrian struck at [Bluemont] Avenue and Mainline Boulevard. Caused by an Amazon van. Virginia tag of 2-Kilo-Alpha-1130. Struck his 8-year-old daughter while on her bicycle. Refuse medics.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">5:14:40&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 18s &middot; 8-year-old struck on bicycle by Amazon van; VA tag 2-Kilo-Alpha-1130; medics refused</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_25/6a1a01d5395a7715853689a2.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">5:29:26&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 15s &middot; vehicle description: white Dodge work van, black female driver, south on Main Line</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_25/6a1a054c395a7715854a8d54.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">5:39:02&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 18s &middot; officer locates van at Diamond &amp; Main Line Blvd</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_25/6a1a0790395a771585565459.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-25" data-share-title="Main Line Blvd &amp; Bluemont Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-26">
+  <div class="eyebrow">Sunday, May&nbsp;31 &middot; 6:41&nbsp;PM &middot; <span class="neighborhood">West End / Van Dorn area</span></div>
+  <h3 class="location">424 S Whiting St at Edsel Rd</h3>
+  <div class="pills"><span class="pill type">Pedestrian</span></div>
+  <blockquote class="excerpt">332 and 331 for MVC injury pedestrian struck 424 South Whiting Street, 424 South Whiting Street. From a time lapse of 15 minutes the vehicle hit the caller&rsquo;s wife. The striking vehicle is still on scene, it&rsquo;s going to be a black Toyota RAV4. We do have medics en route.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">6:41:20&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 20s &middot; Engine 210, Medic 206, EMS 202 dispatched</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_26/6a1cb927e2f01dd24df08f6d.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">6:43:13&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 17s &middot; caller&rsquo;s wife struck by black Toyota RAV4; reported 15 min after; driver on scene</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_26/6a1cb997e2f01dd24df28bea.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-26" data-share-title="424 S Whiting St &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<div class="section-divider" id="corridor">
+  <h2>Corridor incidents</h2>
+  <p class="intro">Vehicle crashes and other corridor incidents (no confirmed pedestrian, cyclist, or scooter strike) on corridors of interest: <b>Braddock Road (Phase 1 east, Phase 2 / Minnie Howard campus area west)</b> and <b>Mount Vernon Avenue</b>. Tracked for the record, not as VRU strikes.</p>
+</div>
+
+<article class="incident" id="incident-04">
+  <div class="eyebrow">Monday, May&nbsp;4 &middot; 8:33&nbsp;AM &middot; <span class="neighborhood">Del Ray &middot; Mount Vernon Avenue corridor</span></div>
+  <h3 class="location">Mount Vernon Ave &amp; E Bellefonte Ave</h3>
+  <div class="pills"><span class="pill hit-and-run">Hit and run</span></div>
+  <blockquote class="excerpt">2-12 can you handle the hit and run no injury at Mount Vernon and East Bellefonte? Mount Vernon and East Bellefonte. En route.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:33:14&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 9s &middot; morning rush hit and run, no injury</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_04/69f89217d7432e855c12d803.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-04" data-share-title="Mount Vernon Ave &amp; E Bellefonte Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-19">
+  <div class="eyebrow">Thursday, May&nbsp;14 &middot; 4:48&nbsp;PM &middot; <span class="neighborhood">Braddock Phase 2 / Minnie Howard</span></div>
+  <h3 class="location">W Braddock Rd &amp; N Radford St</h3>
+  <div class="pills"><span class="pill vehicle-crash">Vehicle crash</span></div>
+  <blockquote class="excerpt">Tower 203, Ambulance 203, operate onto Charlie, Motor Vehicle Crash, West Braddock Road, and North [Radford] Street. Tower 203, Ambulance 203.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">4:48:45&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 5s &middot; Crash 5 handling on the way to traffic direction</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_19/6a063537d7432e855c0998f7.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">4:50:32&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 15s &middot; Tower 203 + Ambulance 203 dispatched</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_19/6a0635aad7432e855c0b46c3.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-19" data-share-title="W Braddock Rd &amp; N Radford St (May 14) &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-20">
+  <div class="eyebrow">Sunday, May&nbsp;17 &middot; 6:31&nbsp;AM &middot; <span class="neighborhood">Braddock Phase 2</span></div>
+  <h3 class="location">1700 block W Braddock Rd</h3>
+  <div class="pills"><span class="pill hit-and-run">Hit and run</span></div>
+  <blockquote class="excerpt">224 for the crash the 1700 block of West Braddock Road 1700 block of West Braddock. We&rsquo;re looking for a black Ford [Fusion] versus a black Nissan Rogue.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">6:31:14&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 9s &middot; black Ford Fusion vs black Nissan Rogue; vehicle-only hit and run</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_20/6a0998fed7432e855ca7f9a8.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-20" data-share-title="1700 block W Braddock Rd &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-21">
+  <div class="eyebrow">Sunday, May&nbsp;17 &middot; 4:32&nbsp;PM &middot; <span class="neighborhood">Braddock Phase 2 / Minnie Howard</span></div>
+  <h3 class="location">W Braddock Rd &amp; N Radford St</h3>
+  <div class="pills"><span class="pill vehicle-crash">Vehicle crash</span></div>
+  <blockquote class="excerpt">315 units are back for the crash with injury at Braddock and [Radford], West Braddock Road and North [Radford] Street. Information is still coming in. Medics are also en route. Priority response is authorized.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">4:32:10&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 11s &middot; crash with injury; priority response</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_21/6a0a25d9d7432e855c220d3f.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">4:32:14&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 17s &middot; Engine 203 + Ambulance 207 dispatched</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_21/6a0a25e2d7432e855c223782.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-21" data-share-title="W Braddock Rd &amp; N Radford St (May 17 PM) &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-12">
+  <div class="eyebrow">Monday, May&nbsp;18 &middot; 7:47&nbsp;AM &middot; <span class="neighborhood">Del Ray &middot; Mount Vernon Avenue corridor</span></div>
+  <h3 class="location">3205 Commonwealth Ave</h3>
+  <div class="pills"><span class="pill of-interest">Of interest</span></div>
+  <blockquote class="excerpt">Crash 6, second check on that. Crash 6 be advised, it&rsquo;s going to be a driver&rsquo;s license that&rsquo;s in front of the door of that location. They&rsquo;re advising that there&rsquo;s also blood on the sidewalk, and there&rsquo;s a massive amount of blood and splatter up and down Commonwealth. It was called in by a person by the name of Jake.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">7:47:51&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 8s &middot; suspicious event dispatched</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_12/6a0afc72d7432e855c1c0e38.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">7:48:01&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 21s &middot; driver&rsquo;s license at the door; blood &amp; splatter up and down Commonwealth</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_12/6a0afc8cd7432e855c1c813d.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">8:18:44&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 9s &middot; officer asks if any overnight service calls on the 3200 block</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_12/6a0b03b2d7432e855c3d11e8.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">8:19:40&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 10s &middot; negative for the 3200 block and Commonwealth Avenue in general</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_12/6a0b03ecd7432e855c3e2ebd.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-12" data-share-title="3205 Commonwealth Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-15">
+  <div class="eyebrow">Wednesday, May&nbsp;20 &middot; 3:48&nbsp;PM &middot; <span class="neighborhood">Braddock corridor (Phase 2 area)</span></div>
+  <h3 class="location">Russell Rd &amp; W Braddock Rd</h3>
+  <div class="pills"><span class="pill police">Police vehicle</span></div>
+  <blockquote class="excerpt">310 to 325, were you involved in the accident? Go again? Were you on view or were you involved in the accident? Both.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">3:48:38&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 6s &middot; Officer 325: &ldquo;I had an accident&rdquo; (en route to a Metro bus fight)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_15/6a0e1026d7432e855cbac82d.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">3:50:20&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 33s &middot; Rescue 209 + Medic 209 dispatched (heavy rescue)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_15/6a0e10a9d7432e855cbca266.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">3:50:34&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 48s &middot; 310: &ldquo;Were you involved?&rdquo; 325: &ldquo;Both.&rdquo; Henry&rsquo;s tow to Impound 1</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_15/6a0e1106d7432e855cbe160d.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">5:27:44&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 9s &middot; transporting one voluntary male to Inova Oakville (Del Ray ER)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_15/6a0e275dd7432e855c116060.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="4">
+  <div class="clip-meta">
+    <span class="clip-time">5:29:58&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 10s &middot; all lanes reopened at Russell &amp; W Braddock (closed ~1h 40m)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_15/6a0e27ebd7432e855c13b7fb.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-15" data-share-title="Russell Rd &amp; W Braddock Rd &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-17">
+  <div class="eyebrow">Thursday, May&nbsp;21 &middot; 5:31&nbsp;PM &middot; <span class="neighborhood">Del Ray &middot; Better Braddock Phase 1 corridor</span></div>
+  <h3 class="location">Little St &amp; E Braddock Rd</h3>
+  <div class="pills"><span class="pill transit">DASH bus</span></div>
+  <blockquote class="excerpt">324 to check in on a crash involving a dash bus and a Volkswagen. It&rsquo;s going to be at Little Street and East Braddock Road. Dash bus. Communications is being notified.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">5:31:27&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 12s &middot; DASH bus vs Volkswagen; DASH communications notified</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_17/6a0f79bed7432e855c836e10.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-17" data-share-title="Little St &amp; E Braddock Rd &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-22">
+  <div class="eyebrow">Friday, May&nbsp;22 &middot; 3:01&nbsp;PM &middot; <span class="neighborhood">Braddock Phase 2</span></div>
+  <h3 class="location">1100 block W Braddock Rd at Valley Dr</h3>
+  <div class="pills"><span class="pill vehicle-crash">Vehicle crash</span></div>
+  <blockquote class="excerpt">820 it looks like in the 1100 block of West Braddock Road there is a two car accident. [Followup AFD:] Engine 206, Ambulance 207, operate onto Charlie, Box 203-04, Motor Vehicle Crash, West Braddock Road, and Valley Drive.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">3:01:03&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 11s &middot; initial report of two-car accident</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_22/6a10a7ffd7432e855c741c98.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">3:14:48&nbsp;PM &middot; <span class="tg AFD">AFD</span> &middot; 17s &middot; Engine 206 + Ambulance 207 to W Braddock &amp; Valley</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_22/6a10ab3dd7432e855c85b1a3.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="2">
+  <div class="clip-meta">
+    <span class="clip-time">4:42:10&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 11s &middot; 314 dispatched additional</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_22/6a10bfb4d7432e855ce268ef.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="3">
+  <div class="clip-meta">
+    <span class="clip-time">4:57:50&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 6s &middot; 324 adds to scene</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_22/6a10c358d7432e855cf3aa69.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-22" data-share-title="W Braddock &amp; Valley Dr &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-23">
+  <div class="eyebrow">Saturday, May&nbsp;23 &middot; 5:10&nbsp;PM &middot; <span class="neighborhood">Del Ray &middot; Mount Vernon Avenue corridor</span></div>
+  <h3 class="location">1316 Mount Vernon Ave (near E Luray)</h3>
+  <div class="pills"><span class="pill vehicle-crash">Vehicle crash</span></div>
+  <blockquote class="excerpt">325 La Crash property damage 1316 Mount Vernon Avenue.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">5:10:23&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 7s &middot; property damage crash; near April incident #9 location (MVA &amp; E Luray ped strike)</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_23/6a1217c9d7432e855c384492.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-23" data-share-title="1316 Mount Vernon Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-24">
+  <div class="eyebrow">Monday, May&nbsp;25 &middot; 8:26&nbsp;AM &middot; <span class="neighborhood">Braddock Phase 2 / Minnie Howard</span></div>
+  <h3 class="location">W Braddock Rd &amp; N Radford St</h3>
+  <div class="pills"><span class="pill vehicle-crash">Vehicle crash</span></div>
+  <blockquote class="excerpt">223 for the crash at West Braddock Road and North [Radford] Street. West Braddock Road and North [Radford] Street. We&rsquo;re looking for a Toyota Tundra versus an Audi Coupe.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">8:26:30&nbsp;AM &middot; <span class="tg AFD">AFD</span> &middot; 11s &middot; Tower 203 on scene of two-vehicle accident</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_24/6a144008e7bdcd012e9cb8ff.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">8:30:11&nbsp;AM &middot; <span class="tg APD">APD</span> &middot; 10s &middot; Toyota Tundra vs Audi Coupe</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_24/6a1440dfe7bdcd012ea04002.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-24" data-share-title="W Braddock Rd &amp; N Radford St (May 25) &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+<article class="incident" id="incident-28">
+  <div class="eyebrow">Wednesday, May&nbsp;27 &middot; 7:00&nbsp;PM &middot; <span class="neighborhood">Arlandria &middot; Mount Vernon Avenue corridor</span></div>
+  <h3 class="location">Mount Vernon Ave &amp; Executive Ave</h3>
+  <div class="pills"><span class="pill hit-and-run">Hit and run</span></div>
+  <blockquote class="excerpt">324 for the hit and run, Mount Vernon in Executive. Caller advise there are cameras in the parking lot. It&rsquo;s going to be a 2015 Honda Accord.</blockquote>
+  <button type="button" class="play-all" aria-label="Play all clips in this card in sequence">▶ Play all clips in order</button>
+  <div class="clips">
+
+<div class="clip" data-clip-idx="0">
+  <div class="clip-meta">
+    <span class="clip-time">7:00:47&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 9s &middot; striking vehicle: 2015 Honda Accord; parking lot cameras available</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_28/6a1777ac395a771585857785.m4a"></audio>
+</div>
+
+<div class="clip" data-clip-idx="1">
+  <div class="clip-meta">
+    <span class="clip-time">7:28:31&nbsp;PM &middot; <span class="tg APD">APD</span> &middot; 4s &middot; officer closes the area report</span>
+  </div>
+  <audio controls preload="none" src="audio/incident_28/6a177e26395a771585a31b53.m4a"></audio>
+</div>
+
+  </div>
+  <div class="links">
+    <button type="button" class="share-card" data-anchor="incident-28" data-share-title="Mount Vernon Ave &amp; Executive Ave &mdash; What Dispatch Heard in May">Direct link</button>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <div style="max-width: 680px; margin: 0 auto; padding: 0 24px;">
+    <div class="byline">By Elena Hutchison &middot; written in personal capacity</div>
+    <p>A running log of pedestrian, cyclist, and scooter strikes audible on Alexandria&rsquo;s public dispatch (OpenMHz, system <em>alex</em>, talkgroups APD&nbsp;1 and AFD&nbsp;2&nbsp;Alpha) in May 2026. Methodology and source code: <a href="https://github.com/ElenaH77/dispatch-pedestrian-monitor">dispatch-pedestrian-monitor</a>.</p>
+    <p>Companion to the April retrospective: <a href="https://elenah77.github.io/what-dispatch-heard-in-april/">What Dispatch Heard in April</a>.</p>
+    <div class="last-updated">Last updated &middot; June&nbsp;1, 2026 &middot; 2:00&nbsp;PM ET</div>
+  </div>
+</footer>
+
+<script>
+function pauseOthersExcept(a) {
+  document.querySelectorAll('audio').forEach(o => {
+    if (o !== a && !o.paused) o.pause();
+  });
+}
+document.querySelectorAll('audio').forEach(a => {
+  a.addEventListener('play', () => pauseOthersExcept(a));
+});
+
+document.querySelectorAll('button.play-all').forEach(btn => {
+  const card = btn.closest('article.incident');
+  const audios = Array.from(card.querySelectorAll('.clip audio'));
+  let idx = 0;
+  let running = false;
+  let expectedAudio = null;
+
+  function stop() {
+    running = false;
+    expectedAudio = null;
+    btn.textContent = '▶ Play all clips in order';
+    audios.forEach(a => { try { a.pause(); } catch (_) {} });
+  }
+
+  function playNext() {
+    if (!running || idx >= audios.length) { stop(); return; }
+    const a = audios[idx];
+    expectedAudio = a;
+    pauseOthersExcept(a);
+    try { a.currentTime = 0; } catch (_) {}
+    const advance = () => {
+      a.removeEventListener('ended', advance);
+      if (running) { idx++; playNext(); }
+    };
+    a.addEventListener('ended', advance);
+    const p = a.play();
+    if (p && p.catch) p.catch(err => {
+      console.warn('Play All: play() rejected', err);
+      stop();
+    });
+  }
+
+  btn.addEventListener('click', () => {
+    if (running) { stop(); return; }
+    idx = 0;
+    running = true;
+    btn.textContent = '■ Stop';
+    audios.forEach(a => { try { a.load(); } catch (_) {} });
+    playNext();
+  });
+
+  audios.forEach(a => a.addEventListener('play', () => {
+    if (running && a !== expectedAudio) stop();
+  }));
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('article.incident').forEach(el => io.observe(el));
+
+document.querySelectorAll('button.share-card').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const anchor = btn.dataset.anchor;
+    const title = btn.dataset.shareTitle || document.title;
+    const base = window.location.origin + window.location.pathname;
+    const url = base + '#' + anchor;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: title, url: url });
+        return;
+      } catch (e) {
+        // user dismissed — fall through to clipboard
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      const orig = btn.textContent;
+      btn.textContent = 'Link copied';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 1800);
+    } catch (e) {
+      window.prompt('Copy this link', url);
+    }
+  });
+});
+</script>
+<script data-goatcounter="https://aprildispatch.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

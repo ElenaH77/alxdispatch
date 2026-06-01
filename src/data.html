@@ -1,0 +1,60 @@
+<main class="page">
+  <h1>The data</h1>
+  <p class="lede">Everything on the map comes from one file. This page is for anyone &mdash; a reporter, an intern, NVFSS, a civic technologist &mdash; who wants to use the dataset directly.</p>
+
+  <div class="callout">
+    <p class="k">Download</p>
+    <p style="margin:0 0 6px"><a href="/incidents.csv"><b>incidents.csv</b></a> &mdash; one row per incident, cumulative since April 2026. Plain CSV, updated monthly.</p>
+    <p style="margin:0;font-size:13.5px;color:var(--muted)">The map fetches this exact file at load time, so what you download is what you see.</p>
+  </div>
+
+  <h2>What this dataset is</h2>
+  <p>A <b>corridor incident tracker</b>: every pedestrian, cyclist, and scooter strike captured citywide, <i>plus</i> vehicle-only crashes and other incidents on the two advocacy corridors &mdash; <b>Braddock Road</b> and <b>Mount Vernon Avenue</b>. The two are tracked together because corridor crash density is the evidentiary argument for the next Braddock fight (Phase 2 / Braddock West). A single row can be both a VRU strike and a corridor incident; the <code>vru_strike</code> and <code>corridor</code> fields are independent flags, so every view on the map falls out of filtering.</p>
+
+  <h2>Column dictionary</h2>
+  <table>
+    <thead><tr><th>Column</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>date</code></td><td>ISO date (YYYY-MM-DD).</td></tr>
+      <tr><td><code>time</code></td><td>24-hour HH:MM, local.</td></tr>
+      <tr><td><code>day</code></td><td>Day-of-week abbreviation.</td></tr>
+      <tr><td><code>area</code></td><td>Neighborhood / area label.</td></tr>
+      <tr><td><code>location</code></td><td>Intersection or address string.</td></tr>
+      <tr><td><code>lat</code>, <code>lng</code></td><td>Approximate intersection/corridor-level coordinates (see <code>geo_precision</code>).</td></tr>
+      <tr><td><code>geo_precision</code></td><td><code>intersection</code> / <code>address</code> / <code>block</code> / <code>approximate</code>.</td></tr>
+      <tr><td><code>corridor</code></td><td><code>Braddock</code> / <code>Mount Vernon</code> / blank. Marks advocacy-corridor rows.</td></tr>
+      <tr><td><code>phase</code></td><td>Braddock only. <code>1</code> = east (Better Braddock / Phase 1); <code>2</code> = west (Minnie Howard area / Braddock West).</td></tr>
+      <tr><td><code>vru_strike</code></td><td><code>Y</code> = a pedestrian/cyclist/scooter/motorcycle was struck; <code>N</code> = vehicle-only / other. Drives the dot color.</td></tr>
+      <tr><td><code>mode</code></td><td>pedestrian / cyclist / scooter / motorcycle / vehicle / DASH bus / police / unknown.</td></tr>
+      <tr><td><code>incident_type</code></td><td>strike / fatality / vehicle_crash / hit_and_run / police_vehicle / of_interest. Kept separate from <code>mode</code> &mdash; a two-car crash is never coded as a VRU strike.</td></tr>
+      <tr><td><code>hit_and_run</code></td><td>Y / N.</td></tr>
+      <tr><td><code>drca_borders</code></td><td><code>Y</code> if within DRCA boundaries: Glebe (N), Russell (E), Braddock (S), Route 1 + CSX tracks (W).</td></tr>
+      <tr><td><code>reported</code></td><td>Y if it received news / APD-social coverage.</td></tr>
+      <tr><td><code>severity_note</code></td><td>Free text: context, confirmed police detail, advocacy notes.</td></tr>
+      <tr><td><code>dispatch_summary</code></td><td>One-line paraphrase of the dispatch audio.</td></tr>
+      <tr><td><code>follow_up_ask</code></td><td>What we want APD to confirm (drives the monthly follow-up list).</td></tr>
+      <tr><td><code>confirm_status</code></td><td><code>open</code> (dispatch-sourced only) / <code>confirmed-context</code> (APD/news detail obtained).</td></tr>
+      <tr><td><code>fr300p_filed</code></td><td>y / no / unknown &mdash; filled from APD follow-up.</td></tr>
+      <tr><td><code>citation</code></td><td>Y / no / unknown &mdash; filled from APD follow-up.</td></tr>
+      <tr><td><code>source_month</code></td><td>April / May / &hellip;</td></tr>
+      <tr><td><code>incident_id</code></td><td>Internal id, e.g. <code>apr-64</code>, <code>may-13</code>.</td></tr>
+      <tr><td><code>openmhz_or_page</code></td><td>Source reference: the published month page (or OpenMHz) the incident is drawn from.</td></tr>
+      <tr><td><code>card_url</code></td><td>Deep link to the published card with audio, e.g. <code>/archive/2026-05/#incident-01</code>.</td></tr>
+      <tr><td><code>child_victim</code></td><td><code>Y</code> if the victim was under 18. Renders a mid-size dot and a badge.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Common views (all are filters, not separate files)</h2>
+  <ul>
+    <li><b>VRU project</b>: <code>vru_strike = Y</code> (citywide strikes).</li>
+    <li><b>Braddock corridor</b>: <code>corridor = Braddock</code> (all types &mdash; the vehicle-crash record).</li>
+    <li><b>Mount Vernon corridor</b>: <code>corridor = Mount Vernon</code>.</li>
+    <li><b>Braddock West evidence</b>: <code>corridor = Braddock</code> AND <code>phase = 2</code>.</li>
+    <li><b>DRCA monthly follow-up list</b>: <code>drca_borders = Y</code>.</li>
+  </ul>
+
+  <h2>Reuse</h2>
+  <p>The dataset is public and free to reuse, including by reporters and other advocates. Two requests: <b>attribute</b> it to this project and link back to <a href="https://alxdispatch.org/">alxdispatch.org</a>, and carry the <b>approximation and scope caveats below</b> so the numbers aren't oversold. The underlying tool is open source (MIT) at <a href="https://github.com/ElenaH77/dispatch-pedestrian-monitor" target="_blank" rel="noopener">dispatch-pedestrian-monitor</a>.</p>
+
+  <p class="scope-foot"><b>Scope &amp; caveats.</b> VRU (pedestrian/cyclist/scooter) strikes are complete citywide from April 2026 onward. <b>Systematic vehicle-only crash tracking on the corridors begins May 2026</b> &mdash; April vehicle-only corridor crashes are <i>not</i> comprehensively captured. Coordinates are intersection-level approximations, not exact points of impact (see <code>geo_precision</code>). Counts reflect what the tool caught and a human verified on the two primary dispatch talkgroups; the true totals are almost certainly higher. See the <a href="/methodology/">Methodology</a> for the full picture.</p>
+</main>

@@ -4,25 +4,57 @@ Cumulative map of pedestrian, cyclist, and scooter strikes — plus active-advoc
 
 Live at **https://alxdispatch.org/** (custom domain, GitHub Pages-hosted from this repo).
 
-## Files
+## Site structure
 
-- `index.html` — the map page. Self-contained except for Leaflet + PapaParse via CDN.
-- `incidents.csv` — the dataset. One row per incident. Columns documented in the handoff spec ([corridor-tracker-handoff.md](../new_upgrade/corridor-tracker-handoff.md) in the dev tree).
+This is a **multi-page site** built from a small static generator. The interactive
+map is the homepage; methodology, recommendations, data, and the monthly archive
+are their own pages, all sharing one header/footer.
+
+```
+/                    home — the interactive map + intro + "how to read this map" key
+/methodology/        how the data is gathered (evergreen; copied from the April piece)
+/recommendations/    the policy / advocacy asks (evergreen; copied from the April piece)
+/data/               the dataset: incidents.csv, column dictionary, reuse terms, scope caveat
+/about/              what this is, who runs it, the NVFSS handoff plan, contact
+/archive/            monthly write-ups, newest first
+/archive/2026-05/    the May running log (copied in; the canonical home for May)
+                     April lives at its original standalone URL and is linked, not moved.
+```
+
+### Source files vs. generated files
+
+- **`build.py`** — the generator. Run `python3 build.py` to regenerate every page.
+- **`partials/`** — `base.html` (page skeleton), `footer.html` (shared footer). The nav
+  is built in `build.py` so it's defined once.
+- **`src/`** — the body content for each page (`home.html`, `methodology.html`, …). **Edit these.**
+- **`assets/site.css`** — shared styles (palette, Lora + Work Sans, nav, footer, prose).
+- **`incidents.csv`** — the dataset. One row per incident. Full column dictionary on `/data/`.
+- `index.html`, `*/index.html` — **generated output. Do not hand-edit** — run `build.py`.
 - `CNAME` — tells GitHub Pages to serve this repo at the custom domain.
 
-The map fetches `incidents.csv` at load time. To update the map, edit the CSV — no code changes needed.
+The map fetches `incidents.csv` at load time. To update the map's *data*, edit the CSV —
+no rebuild needed. To change page *content or layout*, edit `src/` or `partials/` and re-run `build.py`.
 
 ## Monthly workflow (when adding new incidents)
 
-1. **Add cards to the relevant month-page repo** as usual (e.g., `alx-may-dispatch` → `index.html`, add `<article id="incident-NN">` block and audio under `audio/incident_NN/`).
-2. **Append rows to `incidents.csv`** in this repo, one per new card. Match the existing column structure. For `card_url`, use the exact anchor format from the live page (May uses zero-padded two-digit IDs: `#incident-01`; April uses unpadded: `#incident-9`).
-3. **Coordinates:** Elena captures these at review time in `batch_reviewer.py` by right-clicking the intersection in Google Maps and pasting the result into the **Coordinates** field on the verdict form. The exported verdicts CSV includes them, so adding a row to `incidents.csv` is a paste, not a separate geocoding step.
-4. **Commit + push both repos.** GitHub Pages picks up the new data on its next build (usually within a minute).
-5. **Spot-check a couple of new dots** open their cards correctly in the live map.
+1. **Build the month's cards** as usual (the per-card config → `build_site.py` in the dev tree).
+2. **Bring the month into the archive.** Copy the published month page into
+   `archive/<YYYY-MM>/` (its `index.html` + `audio/` + `og.png`). Add the month to
+   `ARCHIVE_MONTHS` in `build.py` and to `src/archive.html`, then run `python3 build.py`
+   — it injects the shared nav bar into the month page. (April is the grandfathered
+   exception: it stays at its original standalone URL and is only *linked* from the archive.)
+3. **Append rows to `incidents.csv`**, one per new card. Match the existing columns.
+   For `card_url`, point at the in-site archive path: `/archive/<YYYY-MM>/#incident-NN`
+   (May uses zero-padded two-digit IDs: `#incident-01`).
+4. **Coordinates:** captured at review time in `batch_reviewer.py` (right-click the
+   intersection in Google Maps → paste into the **Coordinates** field). The exported
+   verdicts CSV includes them, so adding a row is a paste, not a separate geocoding step.
+5. **Commit + push.** GitHub Pages rebuilds within a minute. Spot-check that a few new
+   dots open their cards and that the audio plays.
 
 ## Data conventions (don't break these)
 
-- **`vru_strike`** drives the dot color. `Y` = navy (pedestrian/cyclist/scooter/motorcycle struck); blank/N = rust (vehicle-only / other).
+- **`vru_strike`** drives the dot color **and shape**. `Y` = navy **circle** (pedestrian/cyclist/scooter/motorcycle struck); blank/N = rust **diamond** (vehicle-only / other). Color + shape together so the map never relies on color alone (colorblind-safe).
 - **`child_victim`** = `Y` if the victim was a child (under 18). Renders the dot at radius 9 (between adult VRU at 7 and fatality at 10) plus a `child victim` badge in the popup.
 - **`corridor`** = `Braddock` / `Mount Vernon` / blank. Drives corridor filtering and badges.
 - **`phase`** = `1` (east, Braddock Phase 1 / original Better Braddock) / `2` (west, Phase 2 / Minnie Howard area). Braddock corridor only.
@@ -36,4 +68,7 @@ April was published as a citywide VRU project. April VRU strikes (including corr
 
 ## Architecture note
 
-This is a one-time prototype-to-production lift from a chat-built map. The longer-term plan documented in the handoff spec is to *generate* `incidents.csv` from the per-card config in the month-page repos, so a card and its tracker row can never diverge. For now, `incidents.csv` is hand-maintained alongside the cards.
+The site is static (GitHub Pages) and is assembled by `build.py` from `src/` + `partials/`.
+`incidents.csv` is still hand-maintained alongside the cards; the longer-term plan documented
+in the handoff spec is to *generate* it from the per-card config so a card and its tracker row
+can never diverge.
