@@ -50,6 +50,7 @@ def header(active):
     {link("methodology", "/methodology/", "Methodology")}
     <span class="drop"><a href="/archive/"{archive_active}>Archive</a>
       <span class="menu">
+        <a href="/archive/2026-07/">July 2026<small>What dispatch heard in July</small></a>
         <a href="/archive/2026-06/">June 2026<small>What dispatch heard in June</small></a>
         <a href="/archive/2026-05/">May 2026<small>What dispatch heard in May</small></a>
         <a href="{APRIL_URL}" target="_blank" rel="noopener">April 2026<small>The original retrospective &#8599;</small></a>
@@ -104,7 +105,7 @@ PAGES = [
 
 # Months that have been copied in as in-site archive pages. Each gets the shared
 # nav bar injected so visitors aren't stranded inside a standalone month page.
-ARCHIVE_MONTHS = ["archive/2026-06", "archive/2026-05"]
+ARCHIVE_MONTHS = ["archive/2026-07", "archive/2026-06", "archive/2026-05"]
 
 NAVBAR_MARK = "<!--alx-navbar-->"
 def navbar_html():
