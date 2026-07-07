@@ -40,6 +40,8 @@
 .mapkey .gly{flex:0 0 auto;margin-top:1px;}
 .mapkey .nav-circ{width:14px;height:14px;border-radius:50%;background:var(--vru);border:1.6px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block;}
 .mapkey .veh-dia{width:13px;height:13px;background:var(--veh);border:1.6px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block;transform:rotate(45deg);}
+.mapkey .ring-fatal{width:14px;height:14px;border-radius:50%;background:var(--vru);border:3px solid #E11D2A;box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block;}
+.mapkey .ring-child{width:14px;height:14px;border-radius:50%;background:var(--vru);border:3px solid #EAA300;box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block;}
 
 .latest{max-width:880px;margin:8px auto 0;padding:0 20px;}
 .latest a{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border:1px solid var(--hairline);border-left:5px solid var(--yellow);border-radius:10px;padding:15px 18px;text-decoration:none;color:var(--fg);}
@@ -99,7 +101,8 @@
     <ul>
       <li class="g"><span class="gly nav-circ"></span><span><b>Navy circle</b> &mdash; a vulnerable road user (pedestrian, cyclist, or scooter rider) was struck.</span></li>
       <li class="g"><span class="gly veh-dia"></span><span><b>Rust diamond</b> &mdash; a vehicle-only crash or other incident on a corridor of interest. No one on foot or bike was hit.</span></li>
-      <li class="g"><span class="gly nav-circ" style="width:18px;height:18px"></span><span>A <b>larger dot</b> marks a fatality; a mid-size dot marks a child victim.</span></li>
+      <li class="g"><span class="gly ring-fatal"></span><span>A <b>red ring</b> marks a <b>fatality</b>.</span></li>
+      <li class="g"><span class="gly ring-child"></span><span>A <b>gold ring</b> marks a <b>child victim</b>.</span></li>
     </ul>
   </div>
   <div>
@@ -124,24 +127,29 @@
 
 <script>
 const VRU = '#234969', VEH = '#C0552B';
+const FATAL = '#E11D2A', CHILD = '#EAA300';
 let DATA = [], layer = null, map = null;
 
 function isVeh(d){ return d.vru_strike !== 'Y'; }
 function color(d){ return isVeh(d) ? VEH : VRU; }
-function radius(d){
-  if (d.incident_type === 'fatality') return 10;
-  if (d.child_victim === 'Y') return 9;
-  return isVeh(d) ? 6 : 7;
+function radius(d){ return isVeh(d) ? 6 : 7; }
+// Severity rides on the marker's edge, not its size: a red ring flags a
+// fatality, a gold ring a child victim (fatality wins if both). Everything
+// else keeps the thin white edge that separates it from the map.
+function edge(d){
+  if (d.incident_type === 'fatality') return { c: FATAL, w: 3 };
+  if (d.child_victim === 'Y')        return { c: CHILD, w: 3 };
+  return { c: '#fff', w: 1.6 };
 }
 function esc(s){return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 // Colorblind-safe markers: shape encodes class (circle = VRU strike,
 // diamond = vehicle/other) so the map never relies on color alone.
 function makeIcon(d){
-  const r = radius(d), s = r*2 + 5, c = s/2, fill = color(d);
+  const r = radius(d), s = r*2 + 9, c = s/2, fill = color(d), e = edge(d);
   const shape = isVeh(d)
-    ? '<polygon points="'+c+','+(c-r)+' '+(c+r)+','+c+' '+c+','+(c+r)+' '+(c-r)+','+c+'" fill="'+fill+'" stroke="#fff" stroke-width="1.6"/>'
-    : '<circle cx="'+c+'" cy="'+c+'" r="'+r+'" fill="'+fill+'" stroke="#fff" stroke-width="1.6"/>';
+    ? '<polygon points="'+c+','+(c-r)+' '+(c+r)+','+c+' '+c+','+(c+r)+' '+(c-r)+','+c+'" fill="'+fill+'" stroke="'+e.c+'" stroke-width="'+e.w+'"/>'
+    : '<circle cx="'+c+'" cy="'+c+'" r="'+r+'" fill="'+fill+'" stroke="'+e.c+'" stroke-width="'+e.w+'"/>';
   return L.divIcon({
     html:'<svg width="'+s+'" height="'+s+'" viewBox="0 0 '+s+' '+s+'" style="filter:drop-shadow(0 0 1px rgba(0,0,0,.4))">'+shape+'</svg>',
     className:'dot-icon', iconSize:[s,s], iconAnchor:[c,c], popupAnchor:[0,-c]
