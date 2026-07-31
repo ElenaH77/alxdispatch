@@ -101,6 +101,10 @@ PAGES = [
      "Archive — ALX Dispatch",
      "The monthly write-ups behind the map, newest first: the narrative for each month with the original dispatch audio.",
      SITE + "/archive/", "archive"),
+    ("src/patterns.html", "patterns/index.html",
+     "Four months in: the patterns — ALX Dispatch",
+     "Four months of Alexandria dispatch audio, and the patterns worth flagging to T&ES and fellow advocates: the Eisenhower East cluster, the Braddock Road corridor, routine hit-and-runs, DASH buses struck repeatedly, and why King and Duke match Mount Vernon. Listen to the calls.",
+     SITE + "/patterns/", "patterns"),
 ]
 
 # Months that have been copied in as in-site archive pages. Each gets the shared
