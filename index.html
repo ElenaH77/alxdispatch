@@ -259,7 +259,12 @@ function render(){
 
 function initMap(){
   map = L.map('map',{scrollWheelZoom:true}).setView([38.819,-77.075],13);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+  // CARTO Positron ("light_all"), keyed. CARTO began requiring an API key on
+  // 2026-08-24 (tiles rendered an "API KEY REQUIRED" watermark); the free key is
+  // passed as ?key= on the /rastertiles/ endpoint. Key is from account.carto.com
+  // (client-side keys are public by design; restrict it to alxdispatch.org in the
+  // CARTO dashboard).
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png?key=cb1_2e3x_1_b84ab0d76d5a4afdc99cf6e3',{
     attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19, subdomains:'abcd'
   }).addTo(map);
   layer = L.layerGroup().addTo(map);
