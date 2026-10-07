@@ -54,9 +54,14 @@
 
 #mapwrap{position:relative;width:100%;height:64vh;min-height:380px;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
 #controls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:9px 16px;background:#f0ece3;border-bottom:1px solid var(--hairline);font-size:13px;}
-#controls .grp{display:flex;align-items:center;gap:6px;}
-#controls label{display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap;}
-#controls select{font:inherit;padding:3px 6px;border:1px solid #c7c3b6;border-radius:5px;background:#fff;}
+#controls .grp{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+#controls .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5a6470;margin-right:2px;}
+.chip{font:inherit;font-size:12.5px;padding:3px 11px;border-radius:999px;border:1px solid #c7c3b6;
+  background:#fff;color:#3a4450;cursor:pointer;white-space:nowrap;line-height:1.5;}
+.chip:hover{border-color:#234969;}
+.chip.on{background:#234969;border-color:#234969;color:#fff;}
+.chip.mon{padding:3px 9px;}
+#cAllMon{border-style:dashed;}
 #count{margin-left:auto;font-size:12px;color:#5a6470;}
 #map{width:100%;height:100%;}
 .dot-icon{background:none;border:none;}
@@ -111,26 +116,24 @@
 </section>
 
 <div id="controls">
-  <div class="grp">Corridor:
-    <select id="fCorridor">
-      <option value="all">All</option>
-      <option value="Braddock">Braddock</option>
-      <option value="Mount Vernon">Mount Vernon</option>
-      <option value="none">Neither (citywide)</option>
-    </select>
+  <div class="grp"><span class="lbl">Show</span>
+    <button type="button" class="chip on" id="cVru" aria-pressed="true">VRU strikes</button>
+    <button type="button" class="chip" id="cVeh" aria-pressed="false">Corridor crashes</button>
   </div>
-  <div class="grp">Type:
-    <select id="fType">
-      <option value="all">All</option>
-      <option value="vru">VRU strikes only</option>
-      <option value="veh">Vehicle-only / other</option>
-    </select>
+  <div class="grp"><span class="lbl">Filter</span>
+    <button type="button" class="chip" id="cChild" aria-pressed="false">Children only</button>
+    <button type="button" class="chip" id="cDrca" aria-pressed="false">DRCA area</button>
   </div>
-  <div class="grp">Month:
-    <select id="fMonth"><option value="all">All</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option></select>
+  <div class="grp"><span class="lbl">Months</span>
+    <button type="button" class="chip mon on" data-m="April" aria-pressed="true">Apr</button>
+    <button type="button" class="chip mon on" data-m="May" aria-pressed="true">May</button>
+    <button type="button" class="chip mon on" data-m="June" aria-pressed="true">Jun</button>
+    <button type="button" class="chip mon on" data-m="July" aria-pressed="true">Jul</button>
+    <button type="button" class="chip mon on" data-m="August" aria-pressed="true">Aug</button>
+    <button type="button" class="chip mon on" data-m="September" aria-pressed="true">Sep</button>
+    <button type="button" class="chip mon on" data-m="October" aria-pressed="true">Oct</button>
+    <button type="button" class="chip on" id="cAllMon" aria-pressed="true">All</button>
   </div>
-  <div class="grp"><label><input type="checkbox" id="fDrca"/> DRCA borders only</label></div>
-  <div class="grp"><label><input type="checkbox" id="fP2"/> Braddock Phase 2 only</label></div>
   <div id="count"></div>
 </div>
 
@@ -213,16 +216,11 @@ function badges(d){
 }
 
 function passes(d){
-  const c=document.getElementById('fCorridor').value;
-  if(c==='none'){ if(d.corridor) return false; }
-  else if(c!=='all'){ if(d.corridor!==c) return false; }
-  const t=document.getElementById('fType').value;
-  if(t==='vru' && isVeh(d)) return false;
-  if(t==='veh' && !isVeh(d)) return false;
-  const m=document.getElementById('fMonth').value;
-  if(m!=='all' && d.source_month!==m) return false;
-  if(document.getElementById('fDrca').checked && d.drca_borders!=='Y') return false;
-  if(document.getElementById('fP2').checked && !(d.corridor==='Braddock'&&d.phase===2)) return false;
+  // Show chips: VRU strikes and/or corridor crashes (VRU-only by default)
+  if(isVeh(d) ? !F.veh : !F.vru) return false;
+  if(F.child && d.child_victim!=='Y') return false;
+  if(F.drca && d.drca_borders!=='Y') return false;
+  if(!F.months.has(d.source_month)) return false;
   return true;
 }
 
@@ -272,8 +270,28 @@ function initMap(){
   layer = L.layerGroup().addTo(map);
 }
 
+const F = { vru:true, veh:false, child:false, drca:false,
+  months:new Set(['April','May','June','July','August','September','October']) };
+  // New months: add the month name here AND a .chip.mon button in #controls.
+
+function syncAllMon(){
+  const all = [...document.querySelectorAll('.chip.mon')].every(b=>F.months.has(b.dataset.m));
+  const btn = document.getElementById('cAllMon');
+  btn.classList.toggle('on', all); btn.setAttribute('aria-pressed', all);
+}
+
 function attachFilterHandlers(){
-  ['fCorridor','fType','fMonth','fDrca','fP2'].forEach(id => document.getElementById(id).onchange = render);
+  const toggle=(id,key)=>{const b=document.getElementById(id);
+    b.onclick=()=>{F[key]=!F[key]; b.classList.toggle('on',F[key]); b.setAttribute('aria-pressed',F[key]); render();};};
+  toggle('cVru','vru'); toggle('cVeh','veh'); toggle('cChild','child'); toggle('cDrca','drca');
+  document.querySelectorAll('.chip.mon').forEach(b=>{
+    b.onclick=()=>{const mo=b.dataset.m;
+      if(F.months.has(mo)){F.months.delete(mo); b.classList.remove('on');}
+      else {F.months.add(mo); b.classList.add('on');}
+      b.setAttribute('aria-pressed', F.months.has(mo)); syncAllMon(); render();};});
+  document.getElementById('cAllMon').onclick=()=>{
+    document.querySelectorAll('.chip.mon').forEach(b=>{F.months.add(b.dataset.m); b.classList.add('on'); b.setAttribute('aria-pressed','true');});
+    syncAllMon(); render();};
 }
 
 Papa.parse('/incidents.csv', {
