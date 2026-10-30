@@ -133,6 +133,7 @@
     <button type="button" class="chip mon on" data-m="September" aria-pressed="true">Sep</button>
     <button type="button" class="chip mon on" data-m="October" aria-pressed="true">Oct</button>
     <button type="button" class="chip on" id="cAllMon" aria-pressed="true">All</button>
+    <button type="button" class="chip" id="cNoMon" aria-pressed="false">None</button>
   </div>
   <div id="count"></div>
 </div>
@@ -280,6 +281,9 @@ function syncAllMon(){
   const all = [...document.querySelectorAll('.chip.mon')].every(b=>F.months.has(b.dataset.m));
   const btn = document.getElementById('cAllMon');
   btn.classList.toggle('on', all); btn.setAttribute('aria-pressed', all);
+  const none = F.months.size === 0;
+  const nb = document.getElementById('cNoMon');
+  nb.classList.toggle('on', none); nb.setAttribute('aria-pressed', none);
 }
 
 function attachFilterHandlers(){
@@ -293,6 +297,9 @@ function attachFilterHandlers(){
       b.setAttribute('aria-pressed', F.months.has(mo)); syncAllMon(); render();};});
   document.getElementById('cAllMon').onclick=()=>{
     document.querySelectorAll('.chip.mon').forEach(b=>{F.months.add(b.dataset.m); b.classList.add('on'); b.setAttribute('aria-pressed','true');});
+    syncAllMon(); render();};
+  document.getElementById('cNoMon').onclick=()=>{
+    document.querySelectorAll('.chip.mon').forEach(b=>{F.months.delete(b.dataset.m); b.classList.remove('on'); b.setAttribute('aria-pressed','false');});
     syncAllMon(); render();};
 }
 
