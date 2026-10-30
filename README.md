@@ -56,7 +56,7 @@ no rebuild needed. To change page *content or layout*, edit `src/` or `partials/
 
 - **`vru_strike`** drives the dot color **and shape**. `Y` = navy **circle** (pedestrian/cyclist/scooter/motorcycle struck); blank/N = rust **diamond** (vehicle-only / other). Color + shape together so the map never relies on color alone (colorblind-safe).
 - **`child_victim`** = `Y` if the victim was a child (under 18). Renders the dot at radius 9 (between adult VRU at 7 and fatality at 10) plus a `child victim` badge in the popup.
-- **`corridor`** = `Braddock` / `Mount Vernon` / blank. Drives corridor filtering and badges.
+- **`corridor`** = `Braddock` / `Mount Vernon` / `Russell` (from 2026-10-22) / `Commonwealth` (from 2026-10-24) / blank. Drives corridor filtering and badges.
 - **`phase`** = `1` (east, Braddock Phase 1 / original Better Braddock) / `2` (west, Phase 2 / Minnie Howard area). Braddock corridor only.
 - **`drca_borders`** = `Y` if within DRCA boundaries (Glebe N, Russell E, Braddock S, Rt 1 + CSX W).
 - **`incident_type`** stays separate from `mode`. A two-car crash must never be coded as a VRU strike.

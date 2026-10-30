@@ -29,7 +29,7 @@
 .pp-badges{margin:6px 0;}
 .badge{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:10px;margin:2px 3px 2px 0;color:#fff;}
 .b-veh{background:var(--veh);} .b-vru{background:var(--vru);}
-.b-brad{background:var(--green);} .b-mva{background:#b8902a;color:#1d2733;}
+.b-brad{background:var(--green);} .b-mva{background:#b8902a;color:#1d2733;} .b-rus{background:#4f6d7a;} .b-comm{background:#7a5a86;}
 .b-hr{background:#7a2e2e;} .b-fatal{background:#000;}
 .b-drca{background:#4a5a6a;} .b-child{background:#c25e1a;}
 .pp-note{font-size:12px;color:#374350;margin-bottom:8px;}
@@ -164,6 +164,8 @@ function badges(d){
   h += isVeh(d) ? '<span class="badge b-veh">vehicle / other</span>' : '<span class="badge b-vru">'+esc(d.mode)+' strike</span>';
   if(d.corridor==='Braddock') h+='<span class="badge b-brad">Braddock'+(d.phase?(' P'+d.phase):'')+'</span>';
   if(d.corridor==='Mount Vernon') h+='<span class="badge b-mva">Mt Vernon</span>';
+  if(d.corridor==='Russell') h+='<span class="badge b-rus">Russell</span>';
+  if(d.corridor==='Commonwealth') h+='<span class="badge b-comm">Commonwealth</span>';
   if(d.incident_type==='fatality') h+='<span class="badge b-fatal">fatality</span>';
   if(d.child_victim==='Y') h+='<span class="badge b-child">child victim</span>';
   if(d.hit_and_run==='Y') h+='<span class="badge b-hr">hit &amp; run</span>';

@@ -9,7 +9,7 @@
   </div>
 
   <h2>What this dataset is</h2>
-  <p>A <b>corridor incident tracker</b>: every pedestrian, cyclist, and scooter strike captured citywide, <i>plus</i> vehicle-only crashes and other incidents on the two advocacy corridors &mdash; <b>Braddock Road</b> and <b>Mount Vernon Avenue</b>. The two are tracked together because corridor crash density is the evidentiary argument for the next Braddock fight (Phase 2 / Braddock West). A single row can be both a VRU strike and a corridor incident; the <code>vru_strike</code> and <code>corridor</code> fields are independent flags, so every view on the map falls out of filtering.</p>
+  <p>A <b>corridor incident tracker</b>: every pedestrian, cyclist, and scooter strike captured citywide, <i>plus</i> vehicle-only crashes and other incidents on the advocacy corridors &mdash; <b>Braddock Road</b> and <b>Mount Vernon Avenue</b>, plus (from late October 2026) <b>Russell Road</b>, which traces the DRCA boundary, and <b>Commonwealth Avenue</b>. They are tracked together because corridor crash density is the evidentiary argument for the next Braddock fight (Phase 2 / Braddock West). A single row can be both a VRU strike and a corridor incident; the <code>vru_strike</code> and <code>corridor</code> fields are independent flags, so every view on the map falls out of filtering.</p>
 
   <h2>Column dictionary</h2>
   <table>
@@ -22,7 +22,7 @@
       <tr><td><code>location</code></td><td>Intersection or address string.</td></tr>
       <tr><td><code>lat</code>, <code>lng</code></td><td>Approximate intersection/corridor-level coordinates (see <code>geo_precision</code>).</td></tr>
       <tr><td><code>geo_precision</code></td><td><code>intersection</code> / <code>address</code> / <code>block</code> / <code>approximate</code>.</td></tr>
-      <tr><td><code>corridor</code></td><td><code>Braddock</code> / <code>Mount Vernon</code> / blank. Marks advocacy-corridor rows.</td></tr>
+      <tr><td><code>corridor</code></td><td><code>Braddock</code> / <code>Mount Vernon</code> / <code>Russell</code> (from Oct 22, 2026) / <code>Commonwealth</code> (from Oct 24, 2026) / blank. Marks advocacy-corridor rows.</td></tr>
       <tr><td><code>phase</code></td><td>Braddock only. <code>1</code> = east (Better Braddock / Phase 1); <code>2</code> = west (Minnie Howard area / Braddock West).</td></tr>
       <tr><td><code>vru_strike</code></td><td><code>Y</code> = a pedestrian/cyclist/scooter/motorcycle was struck; <code>N</code> = vehicle-only / other. Drives the dot color.</td></tr>
       <tr><td><code>mode</code></td><td>pedestrian / cyclist / scooter / motorcycle / vehicle / DASH bus / police / unknown.</td></tr>
@@ -49,6 +49,7 @@
     <li><b>VRU project</b>: <code>vru_strike = Y</code> (citywide strikes).</li>
     <li><b>Braddock corridor</b>: <code>corridor = Braddock</code> (all types &mdash; the vehicle-crash record).</li>
     <li><b>Mount Vernon corridor</b>: <code>corridor = Mount Vernon</code>.</li>
+    <li><b>Russell Road / Commonwealth Avenue</b>: <code>corridor = Russell</code> or <code>Commonwealth</code> (vehicle crashes tracked from late October 2026 only).</li>
     <li><b>Braddock West evidence</b>: <code>corridor = Braddock</code> AND <code>phase = 2</code>.</li>
     <li><b>DRCA monthly follow-up list</b>: <code>drca_borders = Y</code>.</li>
   </ul>
