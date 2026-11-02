@@ -30,6 +30,7 @@
     <a href="/methodology/">Methodology</a>
     <span class="drop"><a href="/archive/">Archive</a>
       <span class="menu">
+        <a href="/archive/2026-11/">November 2026<small>What dispatch heard in November</small></a>
         <a href="/archive/2026-10/">October 2026<small>What dispatch heard in October</small></a>
         <a href="/archive/2026-09/">September 2026<small>What dispatch heard in September</small></a>
         <a href="/archive/2026-08/">August 2026<small>What dispatch heard in August</small></a>
@@ -132,6 +133,7 @@
     <button type="button" class="chip mon on" data-m="August" aria-pressed="true">Aug</button>
     <button type="button" class="chip mon on" data-m="September" aria-pressed="true">Sep</button>
     <button type="button" class="chip mon on" data-m="October" aria-pressed="true">Oct</button>
+    <button type="button" class="chip mon on" data-m="November" aria-pressed="true">Nov</button>
     <button type="button" class="chip on" id="cAllMon" aria-pressed="true">All</button>
     <button type="button" class="chip" id="cNoMon" aria-pressed="false">None</button>
   </div>
@@ -164,10 +166,10 @@
 </div>
 
 <div class="latest">
-  <a href="/archive/2026-10/">
+  <a href="/archive/2026-11/">
     <span>
       <span class="lbl">Latest monthly write-up</span><br/>
-      <span class="ttl">Read the October 2026 summary &rarr;</span>
+      <span class="ttl">Read the November 2026 summary &rarr;</span>
     </span>
     <span class="arw">&rarr;</span>
   </a>
@@ -274,7 +276,7 @@ function initMap(){
 }
 
 const F = { vru:true, veh:false, child:false, drca:false,
-  months:new Set(['April','May','June','July','August','September','October']) };
+  months:new Set(['April','May','June','July','August','September','October','November']) };
   // New months: add the month name here AND a .chip.mon button in #controls.
 
 function syncAllMon(){
